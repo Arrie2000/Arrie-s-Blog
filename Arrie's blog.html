@@ -1,0 +1,490 @@
+<html>
+
+<head>
+	<title>My Site</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Merienda+One&family=Roboto&family=Rowdies:wght@700&family=Source+Sans+Pro:ital,wght@1,700&display=swap');
+
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		body {
+			overflow-x: hidden;
+		}
+
+		#header {
+			color: #e85803;
+			font-family: 'Rowdies', cursive;
+			/* display: flex;
+    flex-direction: column; */
+			box-shadow: 0px 5px 20px 0px darkgrey;
+			background-color: whitesmoke;
+			height: 11rem;
+		}
+
+		#header a h1 {
+			color: #e85803;
+			margin: 0rem 2rem;
+			font-size: 3rem;
+			padding-top: 1rem;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		#header h1 hr {
+			width: 15rem;
+			margin: 0.5rem auto;
+			color: lavender;
+		}
+
+		.nav-bar {
+			height: 5rem;
+			max-width: 100%;
+			/* transition-duration: 1s; */
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.movable-nav {
+			position: fixed;
+			top: -6rem;
+			/* border-bottom: 1px solid; */
+			height: 5rem;
+			width: 100%;
+			/* border-top: solid 1px; */
+			background-color: whitesmoke;
+			/* box-shadow: 0px 5px 20px 0px darkgrey; */
+			transition-duration: 0.4s;
+			z-index: 500;
+		}
+
+		.fix-navbar {
+			position: fixed;
+			top: 0;
+			height: 3rem;
+			width: 100%;
+			background-color: whitesmoke;
+			transition-duration: 0.4s;
+			z-index: 500;
+		}
+		
+		#right {
+			width: 2.3rem;
+			position: absolute;
+			right: 4rem;
+			top: 2.5rem;
+		}
+
+		#right hr {
+			height: 3px;
+			background-color: black;
+			margin: 5px;
+			border: none;
+			/* border-radius: 2px; */
+		}
+
+		#right:hover {
+			cursor: pointer;
+
+		}
+
+		/* #left ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+} */
+
+		.list {
+			margin: 0 2rem;
+			font-size: 2rem;
+			list-style: none;
+			height: inherit;
+			display: flex;
+			align-items: center;
+		}
+
+		.list a {
+			text-decoration: none;
+			/* color: rgba(207, 62, 62, 1) */
+			color: #e85803;
+		}
+
+		.list:hover {
+			border-bottom: 3px solid purple;
+		}
+
+		/* Container */
+
+		#container {
+			/* display: flex;
+    flex-direction: column; */
+			height: fit-content;
+		}
+
+		.parent {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(26rem, 28rem));
+			justify-content: space-around;
+			column-gap: 2rem;
+			row-gap: 2rem;
+			padding: 0 13rem;
+			/* width: 60rem; */
+			/* background-color: green; */
+			margin: 3rem auto;
+			font-size: 1.2rem;
+		}
+
+		.left-animate {
+			/* display: none; */
+			position: relative;
+			animation-name: example;
+			animation-duration: 2s;
+			/* animation-fill-mode: forwards; */
+		}
+
+		.right-animate {
+			/* display: none; */
+			position: relative;
+			animation-name: example2;
+			animation-duration: 2s;
+			margin-top: 2rem;
+			/* top: 2rem; */
+			/* animation-fill-mode: forwards; */
+		}
+
+		@keyframes example {
+			from {
+				opacity: 0;
+				left: -10rem;
+			}
+
+			to {
+				opacity: 1;
+				left: 0rem;
+			}
+		}
+
+
+		@keyframes example2 {
+			from {
+				opacity: 0;
+				right: -10rem;
+			}
+
+			to {
+				opacity: 1;
+				right: 0rem;
+			}
+		}
+
+		.blog {
+			/* opacity: 0.5; */
+			/* background-color: rgba(214, 29, 29, 0.794); */
+			/* border: 2px solid; */
+			/* display: block; */
+			/* flex-direction: column; */
+			/* margin: 0.5rem; */
+			height: 18rem;
+			/* margin-top: 2rem; */
+			/* cursor: pointer; */
+		}
+
+		#footer {
+			background-color: black;
+			position: absolute;
+			/* bottom: 0; */
+			width: 100%;
+			height: 4rem;
+			color: white;
+			display: flex;
+			justify-content: center;
+		}
+
+		#footer div {
+			margin: auto auto;
+		}
+
+
+		.rightSidebar {
+			background-color: whitesmoke;
+			right: -20rem;
+			top: 0;
+			transition-duration: 0.75s;
+			position: fixed;
+			width: 20rem;
+			height: 100%;
+			z-index: 5;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+
+		.rightSidebar-visible {
+			width: 20rem;
+			height: 100%;
+			z-index: 5;
+			top: 0;
+			position: fixed;
+			right: 0rem;
+			background-color: whitesmoke;
+			transition-duration: 0.75s;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+
+		#rightSidebar-ul {
+			width: 20rem;
+		}
+
+		.sideBar-heading {
+			width: fit-content;
+			margin: 2rem auto;
+			font-size: 3rem;
+			font-family: 'Rowdies', cursive;
+			color: #e85803;
+			cursor: pointer;
+		}
+
+		#close {
+			position: relative;
+			left: 15.5rem;
+			top: 1.5rem;
+			cursor: pointer;
+		}
+
+		/* #close hr{
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    border: none;
+    border-radius: 2px;
+} */
+
+		#close img {
+			width: 2rem;
+		}
+
+		.dim {
+			background-color: rgba(0, 0, 0, 0.54);
+			height: 100vh;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+
+		.sidebar-list {
+			margin: 3rem;
+			list-style: none;
+		}
+
+		#blog1 {
+			background-image: url("static/hill1.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		#blog2 {
+			background-image: url("static/hill2.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		#blog3 {
+			background-image: url("static/hill3.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		#blog4 {
+			background-image: url("static/hill4.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		#blog5 {
+			background-image: url("static/hill5.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		#blog6 {
+			background-image: url("static/hill6.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+
+		.image-title {
+			/* color: darkgrey; */
+			/* color: #e8345e; */
+			color: #4e4e4e;
+			text-decoration-style: none;
+			font-family: 'Roboto', sans-serif;
+			margin-top: 1rem;
+		}
+	</style>
+</head>
+
+<body>
+	<header id="header"><a href="#">
+			<h1>Arrie's Blog
+				<hr />
+			</h1>
+		</a>
+		<nav class="nav-bar">
+			<li class="list"><a href="#" id="home">Home</a></li>
+			<li class="list"><a href="#">About</a></li>
+			<li class="list"><a href="#">Contact</a></li>
+			<li class="list"><a href="#">Blogs</a></li>
+		</nav>
+		<div id="right">
+			<hr />
+			<hr />
+			<hr />
+		</div>
+	</header>
+	<div class="rightSidebar" id="sideBar">
+		<div id="close"><img src="/static/right-arrow.png" alt="failed-to-load"/></div>
+			<h1 class="sideBar-heading">Arrie's Blog</h1>
+			<hr />
+			<ul id="rightSidebar-ul">
+				<li class="sidebar-list">This is a comment in the list</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+				<li class="sidebar-list">Lorem ipsum dolor sit amet consectetur</li>
+			</ul>
+		</div>
+		<div id="container">
+			<div class="parent" id="parent">
+				<div class="left"><a href="#">
+						<div class="blog" id="blog1"></div>
+						<div>
+							<h3 class="image-title">Towering over the clouds</h3>
+						</div>
+					</a></div>
+				<div class="right"><a href="#">
+						<div class="blog" id="blog2"></div>
+						<div>
+							<h3 class="image-title">Towering over the clouds</h3>
+						</div>
+					</a></div>
+				<div class="left"><a href="#">
+						<div class="blog" id="blog3"></div>
+						<div>
+							<h3 class="image-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sit
+								fugiat rem aliquam, quibusdam ducimus quos, neque doloribus perferendis asperiores
+								numquam qui perspiciatis provident ratione quo accusantium rerum magni temporibus.</h3>
+						</div>
+					</a></div>
+				<div class="right"><a href="#">
+						<div class="blog" id="blog4"></div>
+						<div>
+							<h3 class="image-title">Towering over the clouds</h3>
+						</div>
+					</a></div>
+				<div class="left"><a href="#">
+						<div class="blog" id="blog5"></div>
+						<div>
+							<h3 class="image-title">Towering over the clouds</h3>
+						</div>
+					</a></div>
+				<div class="right"><a href="#">
+						<div class="blog" id="blog6"></div>
+						<div>
+							<h3 class="image-title">Towering over the clouds</h3>
+						</div>
+					</a></div>
+			</div>
+		</div>
+		<div id="overlay"></div>
+		<footer id="footer">
+			<div>© 2020-2021 Arrie.com</div>
+		</footer>
+</body>
+
+</html>
+<script>
+	window.onload = function () {
+    const blogLeft = document.getElementsByClassName("left");
+    const blogRight = document.getElementsByClassName("right");
+
+    Array.from(blogLeft).forEach(function (elems) {
+        elems.classList.add("left-animate");
+    })
+
+    Array.from(blogRight).forEach(function (elems) {
+        elems.classList.add("right-animate");
+    })
+}
+
+
+document.getElementById("right").addEventListener('click', function () {
+    console.log("Fired");
+    document.getElementById("sideBar").classList.add("rightSidebar-visible");
+    document.getElementById("overlay").classList.add("dim");
+    document.getElementsByTagName("body")[0].setAttribute("style", "overflow: hidden;")
+})
+
+let sideBarclose = document.getElementById("close");
+sideBarclose.addEventListener("click", close);
+
+function close() {
+    document.getElementById("sideBar").classList.remove("rightSidebar-visible");
+    console.log("Close Fired");
+    document.getElementById("overlay").classList.remove("dim");
+    document.getElementsByTagName("body")[0].removeAttribute("style", "overflow: hidden;")
+}
+
+document.getElementById("overlay").addEventListener("click", close);
+
+let navbar = document.getElementsByClassName("nav-bar")[0];
+let lastScrollTop = 175;
+let bar = 175;
+
+
+
+//The nav-bar scroll func
+
+
+
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (window.pageYOffset > bar) {
+        bar = 117;
+        navbar.classList.add('movable-nav');
+        if (scrollTop < lastScrollTop) {
+            navbar.classList.replace('movable-nav', 'fix-navbar');
+        }
+        else {
+            navbar.classList.replace('fix-navbar', 'movable-nav');
+        }
+        lastScrollTop = scrollTop;
+    }
+    else {
+        bar = 175;
+        navbar.classList.remove('fix-navbar','movable-nav');
+    }
+})
+</script>
