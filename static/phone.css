@@ -48,3 +48,9 @@
     margin: 2rem 0rem;
     padding: 0rem 0rem;
 }
+
+.image-title{
+    margin-top: -2rem;
+    width: fit-content;
+    background-color: white;
+}
