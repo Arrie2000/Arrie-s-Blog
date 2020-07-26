@@ -18,6 +18,7 @@ document.getElementById("right").addEventListener('click', function () {
     document.getElementById("sideBar").classList.add("rightSidebar-visible");
     document.getElementById("overlay").classList.add("dim");
     document.getElementsByTagName("body")[0].setAttribute("style","overflow: hidden;")
+    document.getElementsByTagName("html")[0].setAttribute("style", "overflow: hidden;")
 })
 
 let sideBarclose = document.getElementById("close");
@@ -29,6 +30,7 @@ function close() {
     console.log("Close Fired");
     document.getElementById("overlay").classList.remove("dim");
     document.getElementsByTagName("body")[0].removeAttribute("style","overflow: hidden;")
+    document.getElementsByTagName("html")[0].removeAttribute("style", "overflow: hidden;")
     // setTimeout(() => {
     //     document.getElementById("sideBar").setAttribute("style","display: none;")
     // }, 1000);
